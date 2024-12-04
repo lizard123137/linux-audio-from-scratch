@@ -1,6 +1,8 @@
 #ifndef CARD_H
 #define CARD_H
 
+#include "exceptions/alsa_exception.hpp"
+
 #include <alsa/asoundlib.h>
 #include <iostream>
 #include <string>
