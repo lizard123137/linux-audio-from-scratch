@@ -3,6 +3,7 @@
 
 #include "alsa_manager.hpp"
 #include "device.hpp"
+#include "wav_file.hpp"
 
 int main(void) {
     std::cout << "Using Alsa version: " << AlsaManager::getAlsaVersion() << std::endl;
@@ -16,4 +17,8 @@ int main(void) {
     // Somehow leaks memory - all the leaks trace back to snd_pcm_open???
     //auto device = AlsaManager::getDevice("default");
     //device.Configure();
+
+    // Wav file testing
+    WavFile file("./sample.wav");
+    std::cout << file << std::endl;
 }
