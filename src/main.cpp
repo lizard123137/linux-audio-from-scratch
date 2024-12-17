@@ -15,10 +15,14 @@ int main(void) {
     }
 
     // Somehow leaks memory - all the leaks trace back to snd_pcm_open???
-    //auto device = AlsaManager::getDevice("default");
-    //device.Configure();
+    auto device = AlsaManager::getDevice("default");
+    device.Configure(44100, false, true);
 
     // Wav file testing
     WavFile file("./sample.wav");
     std::cout << file << std::endl;
+
+    device.PlayPCM((void*)file.getData(), file.getDataLen());
+
+    return EXIT_SUCCESS;
 }

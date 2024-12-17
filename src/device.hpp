@@ -16,6 +16,7 @@ public:
     Device(std::string name, bool output = true, int mode = 0);
     virtual ~Device();
     void Configure(unsigned int rate = 44100, bool stereo = true, bool interleaved = true);
+    void PlayPCM(void* data, long length);
 };
 
 #endif
