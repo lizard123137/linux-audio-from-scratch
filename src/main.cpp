@@ -4,6 +4,7 @@
 #include "alsa_manager.hpp"
 #include "device.hpp"
 #include "wav_file.hpp"
+#include "generator.hpp"
 
 int main(void) {
     std::cout << "Using Alsa version: " << AlsaManager::getAlsaVersion() << std::endl;
@@ -23,6 +24,11 @@ int main(void) {
     std::cout << file << std::endl;
 
     device.PlayPCM((void*)file.getData(), file.getDataLen());
+
+    // Generator testing
+    // TODO fix demonic sound generator
+    uint8_t* data = Generator::generateSine(44100, 1, 1, 200);
+    device.PlayPCM((void*)data, 44100);
 
     return EXIT_SUCCESS;
 }
